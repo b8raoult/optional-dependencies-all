@@ -47,7 +47,7 @@ def fix(path, inplace=False, all_key="all", exclude_keys=None, indent=2):
             for p in optional_dependencies.get(all_key, []):
                 print(f'{indent}"{p}",', file=out)
             print("]", file=out)
-            while "]" not in line:
+            while not line.strip().endswith("]"):
                 line = next(lines)
         else:
             print(line, file=out)
