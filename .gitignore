@@ -1,0 +1,6 @@
+build/
+*.egg-info
+*.pyc
+*.swp
+_version.py
+.vscode/

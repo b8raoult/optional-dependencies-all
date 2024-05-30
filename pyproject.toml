@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=60", "setuptools-scm>=8.0"]
+
+[project]
+name = "optional-dependencies-all"
+dynamic = ["version"]
+description = "A pre-commit hook to updates the project.optional-dependencies.all in a pyproject.toml file."
+
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+dependencies = ["toml"]
+
+
+scripts.optional-dependencies-all = "optional_dependencies_all.__main__:main"
+
+
+[tool.setuptools_scm]
+version_file = "src/optional_dependencies_all/_version.py"
