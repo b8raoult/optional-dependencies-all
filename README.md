@@ -50,5 +50,5 @@ Usage:
   rev: "0.0.1"
   hooks:
   - id: optional-dependencies-all
-    args: ["--inplace", "--all-key", "all", "--ignore-keys", "dev,docs"]
+    args: ["--inplace", "--all-key", "all", "--exclude-keys", "dev,docs"]
 ```
