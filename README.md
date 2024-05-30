@@ -47,7 +47,7 @@ Usage:
 
 ```yaml
 - repo: https://github.com/b8raoult/optional-dependencies-all
-  rev: "0.1.4"
+  rev: "0.0.1"
   hooks:
   - id: optional-dependencies-all
     args: ["--all-key", "all", "--ignore-keys", "dev,docs"]
