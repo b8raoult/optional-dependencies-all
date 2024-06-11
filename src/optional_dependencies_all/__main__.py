@@ -9,7 +9,7 @@ import toml
 
 def build_group(group, optional_dependencies, exclude_keys=None, include_keys=None):
     dependencies = set()
-    print(group, optional_dependencies, exclude_keys, include_keys)
+
     for key, values in optional_dependencies.items():
         if exclude_keys is not None and key in exclude_keys:
             continue
