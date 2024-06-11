@@ -6,6 +6,8 @@ The following code is inconsistent because `pip install mypackage[all]` will not
 This pre-commit hook will make sure that `all` list all the dependencies listed in other entries.
 You can also exclude some entries (typically `docs` or `dev`) with the `--exclude-keys` option.
 
+You can defines also define groups like `--group dev=docs,tests` that will combine the dependencies of `docs` and `tests` into `dev`. You can provide several groups.
+
 ```toml
 
 [project]
@@ -18,8 +20,11 @@ optional-dependencies.web = [
   "requests",
 ]
 
+optional-dependencies.database = [
+  "sqlalchemy",
+]
+
 optional-dependencies.all = [
-  "tqdm",
 ]
 ```
 
@@ -33,13 +38,13 @@ dependencies = [
   "tqdm"
 ]
 
-optional-dependencies.web = [
-  "requests",
+optional-dependencies.database = [
+  "sqlalchemy",
 ]
 
 optional-dependencies.all = [
-  "tqdm",
   "requests",
+  "sqlalchemy",
 ]
 ```
 
@@ -47,8 +52,8 @@ Usage:
 
 ```yaml
 - repo: https://github.com/b8raoult/optional-dependencies-all
-  rev: "0.0.2"
+  rev: "0.0.3"
   hooks:
   - id: optional-dependencies-all
-    args: ["--inplace", "--all-key", "all", "--exclude-keys", "dev,docs"]
+    args: ["--inplace", "--all-key", "all", "--exclude-keys", "dev,docs,tests", "--group dev=docs,tests"]
 ```
