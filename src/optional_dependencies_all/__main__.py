@@ -17,8 +17,6 @@ def build_group(group, optional_dependencies, exclude_keys=None, include_keys=No
             continue
         dependencies.update(values)
 
-    print("dependencies", dependencies)
-
     return sorted(dependencies)
 
 
