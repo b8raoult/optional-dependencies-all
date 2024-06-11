@@ -1,8 +1,8 @@
 import argparse
 import json
-from logging import warning
 import re
 import sys
+from logging import warning
 
 import toml
 
@@ -61,8 +61,6 @@ def fix(path, inplace=False, all_key="all", exclude_keys=None, indent=2, groups=
 
         previous_dependencies = optional_dependencies.copy()
 
-    print(json.dumps(optional_dependencies, indent=2))
-
     if previous_dependencies != optional_dependencies:
         warning(f"Couln't converge on a solution for {path}")
         exit(1)
@@ -115,13 +113,13 @@ def fix(path, inplace=False, all_key="all", exclude_keys=None, indent=2, groups=
         if not found:
             print(line, file=out)
 
-
     if in_project and not done:
         flush()
 
     if not done:
         warning(f"Couldn't finalise optional-dependencies in {path}")
         exit(1)
+
 
 def main():
     parser = argparse.ArgumentParser()
