@@ -32,6 +32,10 @@ def fix(path, inplace=False, all_key="all", exclude_keys=None, indent=2, groups=
     exclude_keys = [] if exclude_keys is None else exclude_keys.split(",")
     new_optional_dependencies = {}
 
+    optional_dependencies.pop(all_key, None)
+    for group in groups:
+        optional_dependencies.pop(group.split("=")[0], None)
+
     previous_dependencies = optional_dependencies.copy()
 
     for _ in range(10):
